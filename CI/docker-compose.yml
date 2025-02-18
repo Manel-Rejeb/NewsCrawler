@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  jenkins:
+    build: ./ci
+    container_name: jenkins
+    ports:
+      - '9007:8080' # Jenkins exposed on port 9007
+      - '50000:50000' # Jenkins agent communication port
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock # Allow Jenkins to use Docker
+    restart: always
+
+  backend:
+    build: ../server
+    container_name: backend
+    ports:
+      - '8081:8080' # Spring Boot exposed on port 8081
+    depends_on:
+      - db
+
+  frontend:
+    build: ../front-app
+    container_name: frontend
+    ports:
+      - '3000:3000' # React exposed on port 3000
+    depends_on:
+      - backend
+
+volumes:
+  jenkins_home:
