@@ -9,6 +9,10 @@ type ArticleCardProps = {
   image: string
 }
 
+/**
+ * @description A card component to display an article preview.
+ * @param {ArticleCardProps} props - The article details.
+ */
 const ArticleCard: FC<ArticleCardProps> = ({ title, author, time, category, image, readTime }) => {
   return (
     <div className='border rounded-lg shadow-sm overflow-hidden bg-white'>
