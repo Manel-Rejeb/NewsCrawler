@@ -1,6 +1,12 @@
 import { type FC } from 'react'
 import { SearchBar } from './search-bar'
 
+/**
+ * @description A responsive navigation bar component for the LET'SREAD application.
+ * It includes a logo, navigation links, a search bar, and a subscription button.
+ *
+ * @returns {JSX.Element} The navigation bar component.
+ */
 const NavBar: FC = () => {
   return (
     <div className='flex flex-col w-full'>
