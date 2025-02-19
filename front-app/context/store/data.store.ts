@@ -50,7 +50,7 @@ export type ResponseEverythingStore = {
  * @description Initial state for the article store.
  */
 export const responseEverythingStore: ResponseEverythingStore = {
-  data: null,
-  loading: false,
-  getEverything: () => {},
+  data: null, // No data initially
+  loading: false, // No active loading process
+  getEverything: () => {}, // Placeholder function to be implemented later
 }

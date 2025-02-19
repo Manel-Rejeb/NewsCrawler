@@ -2,9 +2,12 @@ import { type ChangeEvent, useState, type FC } from 'react'
 import { Search } from 'lucide-react'
 import { useData } from '@/context/provider/Data.provider'
 
+/**
+ * @description A search bar component that allows users to input search queries and fetch related articles.
+ */
 const SearchBar: FC = () => {
-  const { getEverything } = useData()
-  const [searchInput, setSearchInput] = useState<string>('')
+  const { getEverything } = useData() // Accessing the data provider
+  const [searchInput, setSearchInput] = useState<string>('') // State to store search input
 
   return (
     <div className='w-full border-b border-gray-200 bg-white'>
