@@ -24,6 +24,14 @@ public class ArticleService implements ArticleInterface {
 
     private final NewsApiClient newsApiClient = new NewsApiClient("65366ecfa5234932861be080f835eb62");
 
+    /**
+     * Retrieves a paginated list of articles based on a search topic.
+     *
+     * @param searchNewsTopic The topic to search for in articles.
+     * @param pageable        The pagination information including page number and size.
+     * @return A Page containing articles that match the search topic.
+     * @throws RuntimeException If there is an error fetching data from the API.
+     */
     @Override
     public Page<Article> getArticles(String searchNewsTopic, Pageable pageable) {
         CompletableFuture<Page<Article>> future = new CompletableFuture<>();
@@ -63,6 +71,12 @@ public class ArticleService implements ArticleInterface {
 
     }
 
+    /**
+     * Retrieves a list of top headlines related to Tunisia.
+     *
+     * @return A list of top headline articles.
+     * @throws RuntimeException If there is an error fetching data from the API.
+     */
     @Override
     public List<Article> getHeadlines() {
         CompletableFuture<List<Article>> future = new CompletableFuture<>();
@@ -100,6 +114,12 @@ public class ArticleService implements ArticleInterface {
         }
     }
 
+    /**
+     * Retrieves a list of news sources.
+     *
+     * @return A list of available news sources.
+     * @throws RuntimeException If there is an error fetching data from the API.
+     */
     @Override
     public List<Source> getSources() {
         CompletableFuture<List<Source>> future = new CompletableFuture<>();
